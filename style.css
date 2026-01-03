@@ -1,0 +1,79 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #fff1f2;
+    /* Cute polkadot pattern */
+    background-image: radial-gradient(#fecdd3 2px, transparent 2px);
+    background-size: 30px 30px;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Custom scrollbar for textareas */
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+textarea::-webkit-scrollbar-thumb {
+    background: #fda4af;
+    border-radius: 4px;
+}
+
+.heart-beat {
+    animation: beat 1.5s infinite;
+}
+
+@keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating Hearts Background */
+#effects-container {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0; /* Behind the main content */
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -10%;
+    opacity: 0;
+    animation: floatUp linear forwards;
+    will-change: transform, opacity;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-120vh) scale(1.2) rotate(360deg);
+        opacity: 0;
+    }
+}

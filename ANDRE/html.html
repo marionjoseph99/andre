@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poems for My Love</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for that cute aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'handwriting': ['Pacifico', 'cursive'],
+                        'body': ['Quicksand', 'sans-serif'],
+                    },
+                    colors: {
+                        rose: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff1f2;
+            /* Cute polkadot pattern */
+            background-image: radial-gradient(#fecdd3 2px, transparent 2px);
+            background-size: 30px 30px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Custom scrollbar for textareas */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: #fda4af;
+            border-radius: 4px;
+        }
+
+        .heart-beat {
+            animation: beat 1.5s infinite;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Hearts Background */
+        #effects-container {
+            pointer-events: none;
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0; /* Behind the main content */
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -10%;
+            opacity: 0;
+            animation: floatUp linear forwards;
+            will-change: transform, opacity;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.5) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-120vh) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12 selection:bg-rose-200 selection:text-rose-900">
+
+    <!-- Floating Hearts Background -->
+    <div id="effects-container"></div>
+
+    <!-- Navigation / Header -->
+    <nav class="sticky top-0 z-50 glass-card border-b border-rose-100 shadow-sm px-6 py-4 mb-8">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <h1 class="font-handwriting text-3xl text-rose-500">
+                <i class="fa-solid fa-heart text-rose-400 mr-2 heart-beat"></i>
+                Poems for Him
+            </h1>
+            <div class="flex items-center gap-3">
+                <button id="bgm-toggle" class="flex items-center gap-2 text-sm text-rose-600 font-semibold bg-rose-100 px-4 py-2 rounded-full border border-rose-200 shadow-sm hover:bg-rose-100 transition" type="button">
+                    <i class="fa-solid fa-volume-high"></i>
+                    <span>Music On</span>
+                </button>
+                <div class="text-sm text-rose-400 font-semibold bg-rose-50 px-4 py-2 rounded-full border border-rose-100">
+                    For Andre
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 max-w-3xl mx-auto px-4 md:px-6 space-y-8">
+        <!-- Background Music (hidden audio element) -->
+    <audio id="bgm-audio" src="BGMNEW.mp3" loop preload="auto" autoplay class="hidden"></audio>
+        
+        <!-- Intro / Hero -->
+        <div class="text-center py-8">
+            <div class="inline-block p-4 rounded-full bg-rose-100 mb-4 animate-bounce">
+                <i class="fa-solid fa-feather-pointed text-3xl text-rose-400"></i>
+            </div>
+            <h2 class="font-handwriting text-4xl text-rose-600 mb-2">My Heart in Words</h2>
+            <p class="text-rose-400 font-medium">A collection of moments just for you.</p>
+        </div>
+
+        <!-- Poem: Bumble -->
+        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden">
+             <!-- Decoration Circle -->
+             <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+             
+             <div class="relative z-10">
+                 <h3 class="font-handwriting text-3xl text-amber-500 mb-4 border-b-2 border-amber-100 pb-2 inline-block">Bumble</h3>
+                 <div class="relative">
+                     <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-amber-100 text-5xl -z-10"></i>
+                     <p class="text-gray-700 leading-relaxed font-body text-lg whitespace-pre-line pl-2">A casual spark of curiosity led the way
+                     to a glowing screen on a quiet day.
+                     No plans in mind, just time to spare,
+                     a careless swipe, no thought or care.
+
+                     Then your profile surfaced, a pause, a sign,
+                     a match that felt oddly well-timed.
+                     One simple “hello,” and something aligned,
+                     a beginning I didn’t know I’d find.</p>
+                 </div>
+                 <div class="mt-6 text-right">
+                    <i class="fa-brands fa-forumbee text-amber-300 text-xl"></i>
+                 </div>
+             </div>
+        </div>
+
+        <!-- Poem 1: Andre -->
+        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden">
+             <!-- Decoration Circle -->
+             <div class="absolute -right-6 -top-6 w-24 h-24 bg-rose-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+             
+             <div class="relative z-10">
+                 <h3 class="font-handwriting text-3xl text-rose-500 mb-4 border-b-2 border-rose-100 pb-2 inline-block">ANDRE</h3>
+                 <div class="relative">
+                     <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-rose-100 text-5xl -z-10"></i>
+                     <div class="text-gray-700 leading-relaxed font-body text-lg pl-2">
+                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">A</span>ll my favorite moments quietly lead to you,</div>
+                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">N</span>othing else has ever felt this steady, this true,</div>
+                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">D</span>reams I never named somehow came alive,</div>
+                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">R</span>esting in the calm your honest words provide,</div>
+                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">E</span>ach day feels lighter knowing you’re there—</div>
+                        <div class="mt-2">Andre.</div>
+                     </div>
+                 </div>
+                 <div class="mt-6 text-right">
+                    <i class="fa-solid fa-heart text-rose-300 text-sm"></i>
+                 </div>
+             </div>
+        </div>
+
+        <!-- Poem 2: Chicken Nuggets -->
+        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden" style="animation-delay: 200ms;">
+             <!-- Decoration Circle -->
+             <div class="absolute -right-6 -top-6 w-24 h-24 bg-yellow-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+             
+             <div class="relative z-10">
+                 <h3 class="font-handwriting text-3xl text-yellow-500 mb-4 border-b-2 border-yellow-100 pb-2 inline-block">Chicken Nuggets</h3>
+                 <div class="relative">
+                     <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-yellow-100 text-5xl -z-10"></i>
+                     <p class="text-gray-700 leading-relaxed font-body text-lg whitespace-pre-line pl-2">A simple tray of golden, crispy bites,
+                     Is all it takes to make your spirit glow.
+                     Through busy days or quiet, starry nights,
+                     This favorite snack is how our comforts grow.
+                     I love the way you savor every piece,
+                     Finding a joy that’s pure and sweet and free.
+                     Within this love, all other worries cease,
+                     My favorite flavor is just you and me.</p>
+                 </div>
+                 <div class="mt-6 text-right">
+                    <i class="fa-solid fa-drumstick-bite text-yellow-300 text-sm"></i>
+                 </div>
+             </div>
+        </div>
+
+        <!-- Poem 3: Tahanan -->
+        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden" style="animation-delay: 300ms;">
+             <!-- Decoration Circle -->
+             <div class="absolute -right-6 -top-6 w-24 h-24 bg-sky-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+             
+             <div class="relative z-10">
+                 <h3 class="font-handwriting text-3xl text-sky-500 mb-4 border-b-2 border-sky-100 pb-2 inline-block">Tahanan</h3>
+                 <div class="relative">
+                     <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-sky-100 text-5xl -z-10"></i>
+                     <p class="text-gray-700 leading-relaxed font-body text-lg whitespace-pre-line pl-2">Alam mo kung paano gawing tahanan ang bawat sandali,
+                     Sa piling mo, ang mga alalahanin ay madaling napapawi.
+                     Walang kailangang patunayan o higit pang gawin,
+                     Sapat na ang katahimikang tanging tayo ang may angkin.
+                     Sa mundong magulo, sa iyo ako ay laging kampante.</p>
+                 </div>
+                 <div class="mt-6 text-right">
+                    <i class="fa-solid fa-house-chimney text-sky-300 text-sm"></i>
+                 </div>
+             </div>
+        </div>
+
+        <!-- 25 Reasons Section -->
+        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in">
+            <div class="text-center mb-8">
+                <div class="inline-block p-3 rounded-full bg-rose-100 mb-3">
+                    <i class="fa-solid fa-gift text-2xl text-rose-500"></i>
+                </div>
+                <h3 class="font-handwriting text-3xl text-rose-500">25 Reasons Why I Love You</h3>
+                <p class="text-rose-400 text-sm mt-2">One for every year of you.</p>
+            </div>
+            
+            <div id="reasons-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <!-- Reasons will be injected here by JS -->
+            </div>
+        </div>
+
+        <!-- Spotify Playlist -->
+        <div class="glass-card rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 fade-in" style="animation-delay: 400ms;">
+            <div class="flex items-center mb-4 gap-3">
+                <div class="bg-green-100 p-2 rounded-full">
+                    <i class="fa-brands fa-spotify text-green-500 text-xl"></i>
+                </div>
+                <h3 class="font-handwriting text-2xl text-rose-500">Our Soundtrack</h3>
+            </div>
+            <div id="spotify-embed"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-rose-300 text-sm py-8 font-handwriting">
+            Made with love, always.
+        </div>
+    </main>
+
+    <script>
+        // Define global callback for Spotify API
+        window.onSpotifyIframeApiReady = (IFrameAPI) => {
+            const element = document.getElementById('spotify-embed');
+            const options = {
+                uri: 'spotify:playlist:7CspcavoDY3lf7DFLrYwEJ',
+                width: '100%',
+                height: '352',
+                theme: 'light' // Optional, matches the aesthetic better
+            };
+            
+            const callback = (EmbedController) => {
+                EmbedController.addListener('playback_update', e => {
+                    // If Spotify is playing (isPaused is false), pause BGM
+                    // If Spotify is paused (isPaused is true), play BGM
+                    if (e.data.isPaused) {
+                        // Only resume if we are not already playing to avoid loops/errors
+                        // But playAudio handles state check internally or we can check here
+                        // We want to "automatically turn on"
+                        playAudio();
+                    } else {
+                        pauseAudio();
+                    }
+                });
+            };
+            
+            IFrameAPI.createController(element, options, callback);
+        };
+
+        // Main script logic
+        const audio = document.getElementById('bgm-audio');
+        const toggleBtn = document.getElementById('bgm-toggle');
+        const icon = toggleBtn.querySelector('i');
+        const label = toggleBtn.querySelector('span');
+        let isPlaying = false;
+
+        // Set default volume to 50%
+        audio.volume = 0.5;
+
+        const setState = (playing) => {
+            isPlaying = playing;
+            label.textContent = playing ? 'Music On' : 'Music Off';
+            icon.classList.toggle('fa-volume-high', playing);
+            icon.classList.toggle('fa-volume-xmark', !playing);
+            toggleBtn.classList.toggle('bg-rose-100', playing);
+            toggleBtn.classList.toggle('text-rose-600', playing);
+        };
+
+        const playAudio = async () => {
+            // If already playing, don't do anything (avoids promise interruption errors)
+            if (!audio.paused) {
+                setState(true);
+                return;
+            }
+            
+            try {
+                await audio.play();
+                setState(true);
+            } catch (err) {
+                console.warn('Playback was blocked until user interaction', err);
+                setState(false);
+            }
+        };
+
+        const pauseAudio = () => {
+            audio.pause();
+            setState(false);
+        };
+
+        toggleBtn.addEventListener('click', () => {
+            if (!isPlaying) {
+                playAudio();
+            } else {
+                pauseAudio();
+            }
+        });
+
+        // Try to start music on page load
+        playAudio();
+
+        // --- Floating Hearts Effect ---
+        const effectsContainer = document.getElementById('effects-container');
+        
+        const spawnHeart = () => {
+            if (!effectsContainer) return;
+
+            const heart = document.createElement('i');
+            // Using FontAwesome heart icon
+            heart.className = 'fa-solid fa-heart floating-heart';
+            
+            // Randomize appearance
+            const size = 10 + Math.random() * 20; // 10px - 30px
+            const startLeft = Math.random() * 100; // 0-100vw
+            const duration = 10 + Math.random() * 15; // 10s - 25s (slow and gentle)
+            
+            // Randomize color (various shades of pink/red)
+            const colors = ['text-rose-300', 'text-rose-400', 'text-pink-300', 'text-pink-400', 'text-red-300'];
+            heart.classList.add(colors[Math.floor(Math.random() * colors.length)]);
+
+            heart.style.left = `${startLeft}vw`;
+            heart.style.fontSize = `${size}px`;
+            heart.style.animationDuration = `${duration}s`;
+            
+            effectsContainer.appendChild(heart);
+
+            // Cleanup
+            setTimeout(() => {
+                heart.remove();
+            }, duration * 1000);
+        };
+
+        // Spawn hearts periodically
+        setInterval(spawnHeart, 800);
+        // Start with some hearts
+        for(let i=0; i<15; i++) {
+            setTimeout(spawnHeart, i * 200);
+        }
+
+        // Inject Spotify IFrame API script
+        const script = document.createElement('script');
+        script.src = "https://open.spotify.com/embed/iframe-api/v1";
+        script.async = true;
+        document.body.appendChild(script);
+
+        // --- 25 Reasons Generator ---
+        const reasonsGrid = document.getElementById('reasons-grid');
+        // EDIT HERE: Add your own 25 reasons!
+        const reasons = [
+            "Your kindness",
+            "The way you make me laugh",
+            "Your warm hugs",
+            "How you support my dreams",
+            "Your beautiful smile",
+            "The way you listen",
+            "Your patience",
+            "Our late night talks",
+            "Your sense of humor",
+            "How safe I feel with you",
+            "Your passion",
+            "The way you look at me",
+            "Your cooking (especially nuggets!)",
+            "How hard you work",
+            "Your gentle heart",
+            "The way you hold my hand",
+            "Your honesty",
+            "How you cheer me up",
+            "Your intelligence",
+            "Our inside jokes",
+            "Your adventurous spirit",
+            "How much you care",
+            "Your voice",
+            "The memories we share",
+            "Just being you"
+        ];
+
+        let revealedCount = 0;
+
+        if (reasonsGrid) {
+            reasons.forEach((reason, index) => {
+                const card = document.createElement('div');
+                card.className = 'bg-white/60 p-4 rounded-xl border border-rose-200 text-center hover:bg-rose-50 transition-all duration-300 flex flex-col items-center justify-center min-h-[120px] cursor-pointer shadow-sm hover:shadow-md select-none';
+                
+                // Initial content
+                card.innerHTML = `
+                    <div class="transition-all duration-300 transform">
+                        <span class="font-handwriting text-4xl text-rose-400 block mb-2">#${index + 1}</span>
+                        <span class="text-xs text-rose-300 uppercase tracking-widest font-bold">Tap to Reveal</span>
+                    </div>
+                `;
+
+                card.addEventListener('click', function() {
+                    // If already revealed, do nothing
+                    if (this.classList.contains('revealed')) return;
+                    
+                    this.classList.add('revealed');
+                    revealedCount++;
+                    
+                    // Visual change for the card background
+                    this.classList.remove('bg-white/60', 'hover:bg-rose-50');
+                    this.classList.add('bg-rose-100', 'border-rose-300', 'scale-105');
+                    
+                    // Change content with a fade effect
+                    this.innerHTML = `
+                        <div class="fade-in">
+                            <p class="text-gray-800 font-medium text-sm leading-relaxed">${reason}</p>
+                        </div>
+                    `;
+                    
+                    // Remove scale effect after a moment so it settles
+                    setTimeout(() => {
+                        this.classList.remove('scale-105');
+                    }, 200);
+
+                    // Spawn mini hearts burst
+                    const rect = this.getBoundingClientRect();
+                    const center = {
+                        x: rect.left + rect.width / 2,
+                        y: rect.top + rect.height / 2
+                    };
+                    
+                    for(let i=0; i<8; i++) {
+                        const heart = document.createElement('i');
+                        heart.className = 'fa-solid fa-heart fixed text-rose-500 z-50 pointer-events-none';
+                        heart.style.left = center.x + 'px';
+                        heart.style.top = center.y + 'px';
+                        heart.style.fontSize = (12 + Math.random() * 12) + 'px';
+                        heart.style.transform = `translate(-50%, -50%)`;
+                        
+                        document.body.appendChild(heart);
+                        
+                        // Random direction
+                        const angle = Math.random() * Math.PI * 2;
+                        const velocity = 60 + Math.random() * 60;
+                        const tx = Math.cos(angle) * velocity;
+                        const ty = Math.sin(angle) * velocity - 60; // Tend upwards
+                        
+                        const animation = heart.animate([
+                            { transform: `translate(-50%, -50%) scale(0)`, opacity: 0 },
+                            { transform: `translate(calc(-50% + ${tx * 0.5}px), calc(-50% + ${ty * 0.5}px)) scale(1.2)`, opacity: 1, offset: 0.4 },
+                            { transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
+                        ], {
+                            duration: 800 + Math.random() * 400,
+                            easing: 'cubic-bezier(0, .9, .57, 1)'
+                        });
+                        
+                        animation.onfinish = () => heart.remove();
+                    }
+
+                    // Check if all cards are revealed
+                    if (revealedCount === reasons.length) {
+                        setTimeout(showBirthdaySurprise, 800);
+                    }
+                });
+
+                reasonsGrid.appendChild(card);
+            });
+        }
+
+        function showBirthdaySurprise() {
+            const container = reasonsGrid.parentElement;
+            
+            // Fade out grid
+            reasonsGrid.style.transition = 'opacity 0.5s ease-out';
+            reasonsGrid.style.opacity = '0';
+            
+            setTimeout(() => {
+                reasonsGrid.style.display = 'none';
+                
+                // Create message container
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'text-center fade-in p-8';
+                messageDiv.innerHTML = `
+                    <div class="mb-6 animate-bounce">
+                        <i class="fa-solid fa-cake-candles text-6xl text-rose-500"></i>
+                    </div>
+                    <h2 class="font-handwriting text-5xl text-rose-600 mb-6">Happy 25th Birthday, Andre!</h2>
+                    <p class="text-xl text-gray-700 leading-relaxed font-body mb-8">
+                        You've unlocked all the reasons why I love you, but the truth is, 
+                        there are infinite reasons. Here's to 25 years of you, and to all 
+                        the beautiful years ahead of us. I love you so much!
+                    </p>
+                    <div class="flex justify-center gap-4">
+                        <i class="fa-solid fa-heart text-rose-400 text-2xl animate-pulse"></i>
+                        <i class="fa-solid fa-heart text-rose-400 text-2xl animate-pulse" style="animation-delay: 0.2s"></i>
+                        <i class="fa-solid fa-heart text-rose-400 text-2xl animate-pulse" style="animation-delay: 0.4s"></i>
+                    </div>
+                `;
+                
+                container.appendChild(messageDiv);
+            }, 500);
+        }
+    </script>
+</body>
+</html>

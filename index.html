@@ -51,6 +51,9 @@
                 Poems for Him
             </h1>
             <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="flex items-center justify-center w-10 h-10 text-rose-600 bg-rose-100 rounded-full border border-rose-200 shadow-sm hover:bg-rose-200 transition" type="button" title="Toggle Theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
                 <button id="bgm-toggle" class="flex items-center gap-2 text-sm text-rose-600 font-semibold bg-rose-100 px-4 py-2 rounded-full border border-rose-200 shadow-sm hover:bg-rose-100 transition" type="button">
                     <i class="fa-solid fa-volume-high"></i>
                     <span>Music On</span>
@@ -75,101 +78,158 @@
             <p class="text-rose-400 font-medium">A collection of moments just for you.</p>
         </div>
 
-        <!-- Poem: Bumble -->
-        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden">
-             <!-- Decoration Circle -->
-             <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
-             
-             <div class="relative z-10">
-                 <h3 class="font-handwriting text-3xl text-amber-500 mb-4 border-b-2 border-amber-100 pb-2 inline-block">Bumble</h3>
-                 <div class="relative">
-                     <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-amber-100 text-5xl -z-10"></i>
-                     <p class="text-gray-700 leading-relaxed font-body text-lg whitespace-pre-line pl-2">A casual spark of curiosity led the way
-                     to a glowing screen on a quiet day.
-                     No plans in mind, just time to spare,
-                     a careless swipe, no thought or care.
-
-                     Then your profile surfaced, a pause, a sign,
-                     a match that felt oddly well-timed.
-                     One simple “hello,” and something aligned,
-                     a beginning I didn’t know I’d find.</p>
-                 </div>
-                 <div class="mt-6 text-right">
-                    <i class="fa-brands fa-forumbee text-amber-300 text-xl"></i>
-                 </div>
-             </div>
+        <!-- Timeline Header -->
+        <div class="text-center mb-4">
+            <span class="bg-rose-100 text-rose-600 px-4 py-1 rounded-full text-sm font-semibold border border-rose-200">
+                Journey to 25
+            </span>
         </div>
 
-        <!-- Poem 1: Andre -->
-        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden">
-             <!-- Decoration Circle -->
-             <div class="absolute -right-6 -top-6 w-24 h-24 bg-rose-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
-             
-             <div class="relative z-10">
-                 <h3 class="font-handwriting text-3xl text-rose-500 mb-4 border-b-2 border-rose-100 pb-2 inline-block">ANDRE</h3>
-                 <div class="relative">
-                     <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-rose-100 text-5xl -z-10"></i>
-                     <div class="text-gray-700 leading-relaxed font-body text-lg pl-2">
-                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">A</span>ll my favorite moments quietly lead to you,</div>
-                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">N</span>othing else has ever felt this steady, this true,</div>
-                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">D</span>reams I never named somehow came alive,</div>
-                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">R</span>esting in the calm your honest words provide,</div>
-                        <div class="mb-1"><span class="font-bold text-rose-600 text-xl">E</span>ach day feels lighter knowing you’re there—</div>
-                        <div class="mt-2">Andre.</div>
-                     </div>
-                 </div>
-                 <div class="mt-6 text-right">
-                    <i class="fa-solid fa-heart text-rose-300 text-sm"></i>
-                 </div>
-             </div>
+        <div class="relative pl-8 border-l-2 border-rose-200 ml-4 md:ml-8 space-y-12 pb-8">
+            <!-- Poem: Bumble -->
+            <div class="relative">
+                <span class="absolute -left-[41px] top-8 w-5 h-5 bg-amber-300 rounded-full border-4 border-white ring-2 ring-rose-100"></span>
+                <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden">
+                    <!-- Decoration Circle -->
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="font-handwriting text-3xl text-amber-500 mb-4 border-b-2 border-amber-100 pb-2 inline-block">Bumble</h3>
+                        <div class="relative">
+                            <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-amber-100 text-5xl -z-10"></i>
+                            <p class="text-gray-700 leading-relaxed font-body text-lg whitespace-pre-line pl-2">A casual spark of curiosity led the way
+                            to a glowing screen on a quiet day.
+                            No plans in mind, just time to spare,
+                            a careless swipe, no thought or care.
+
+                            Then your profile surfaced, a pause, a sign,
+                            a match that felt oddly well-timed.
+                            One simple “hello,” and something aligned,
+                            a beginning I didn’t know I’d find.</p>
+                        </div>
+                        <div class="mt-6 flex justify-between items-end">
+                            <span class="text-xs text-amber-300 font-medium">December 29, 2025</span>
+                            <i class="fa-brands fa-forumbee text-amber-300 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Poem: Chicken Nuggets -->
+            <div class="relative">
+                <span class="absolute -left-[41px] top-8 w-5 h-5 bg-yellow-400 rounded-full border-4 border-white ring-2 ring-rose-100"></span>
+                <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden" style="animation-delay: 200ms;">
+                    <!-- Decoration Circle -->
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-yellow-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="font-handwriting text-3xl text-yellow-500 mb-4 border-b-2 border-yellow-100 pb-2 inline-block">Chicken Nuggets</h3>
+                        <div class="relative">
+                            <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-yellow-100 text-5xl -z-10"></i>
+                            <p class="text-gray-700 leading-relaxed font-body text-lg whitespace-pre-line pl-2">A simple tray of golden, crispy bites,
+                            Is all it takes to make your spirit glow.
+                            Through busy days or quiet, starry nights,
+                            This favorite snack is how our comforts grow.
+                            I love the way you savor every piece,
+                            Finding a joy that’s pure and sweet and free.
+                            Within this love, all other worries cease,
+                            My favorite flavor is just you and me.</p>
+                        </div>
+                        <div class="mt-6 flex justify-between items-end">
+                            <span class="text-xs text-yellow-400 font-medium">January 1, 2026</span>
+                            <i class="fa-solid fa-drumstick-bite text-yellow-300 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Poem: Tahanan -->
+            <div class="relative">
+                <span class="absolute -left-[41px] top-8 w-5 h-5 bg-sky-400 rounded-full border-4 border-white ring-2 ring-rose-100"></span>
+                <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden" style="animation-delay: 300ms;">
+                    <!-- Decoration Circle -->
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-sky-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="font-handwriting text-3xl text-sky-500 mb-4 border-b-2 border-sky-100 pb-2 inline-block">Tahanan</h3>
+                        <div class="relative">
+                            <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-sky-100 text-5xl -z-10"></i>
+                            <p class="text-gray-700 leading-relaxed font-body text-lg whitespace-pre-line pl-2">Alam mo kung paano gawing tahanan ang bawat sandali,
+                            Sa piling mo, ang mga alalahanin ay madaling napapawi.
+                            Walang kailangang patunayan o higit pang gawin,
+                            Sapat na ang katahimikang tanging tayo ang may angkin.
+                            Sa mundong magulo, sa iyo ako ay laging kampante.</p>
+                        </div>
+                        <div class="mt-6 flex justify-between items-end">
+                            <span class="text-xs text-sky-300 font-medium">May 10, 2026</span>
+                            <i class="fa-solid fa-house-chimney text-sky-300 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Poem: Andre -->
+            <div class="relative">
+                <span class="absolute -left-[41px] top-8 w-5 h-5 bg-rose-500 rounded-full border-4 border-white ring-2 ring-rose-100"></span>
+                <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden" style="animation-delay: 400ms;">
+                    <!-- Decoration Circle -->
+                    <div class="absolute -right-6 -top-6 w-24 h-24 bg-rose-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
+                    
+                    <div class="relative z-10">
+                        <h3 class="font-handwriting text-3xl text-rose-500 mb-4 border-b-2 border-rose-100 pb-2 inline-block">ANDRE</h3>
+                        <div class="relative">
+                            <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-rose-100 text-5xl -z-10"></i>
+                            <div class="text-gray-700 leading-relaxed font-body text-lg pl-2">
+                                <div class="mb-1"><span class="font-bold text-rose-600 text-xl">A</span>ll my favorite moments quietly lead to you,</div>
+                                <div class="mb-1"><span class="font-bold text-rose-600 text-xl">N</span>othing else has ever felt this steady, this true,</div>
+                                <div class="mb-1"><span class="font-bold text-rose-600 text-xl">D</span>reams I never named somehow came alive,</div>
+                                <div class="mb-1"><span class="font-bold text-rose-600 text-xl">R</span>esting in the calm your honest words provide,</div>
+                                <div class="mb-1"><span class="font-bold text-rose-600 text-xl">E</span>ach day feels lighter knowing you’re there—</div>
+                                <div class="mt-2">Andre.</div>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex justify-between items-end">
+                            <span class="text-xs text-rose-300 font-medium">June 6, 2026</span>
+                            <i class="fa-solid fa-heart text-rose-300 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Goal -->
+            <div class="relative opacity-70">
+                <span class="absolute -left-[41px] top-8 w-5 h-5 bg-gray-300 rounded-full border-4 border-white ring-2 ring-rose-100"></span>
+                <div class="glass-card rounded-3xl p-6 border-dashed border-2 border-rose-300 bg-transparent">
+                    <div class="flex items-center gap-4 text-rose-400">
+                        <i class="fa-solid fa-hourglass-half text-2xl"></i>
+                        <div>
+                            <h3 class="font-handwriting text-xl">The 25th Birthday</h3>
+                            <p class="text-sm font-body">November 13, 2026 • 21 more poems to go...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Poem 2: Chicken Nuggets -->
-        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden" style="animation-delay: 200ms;">
-             <!-- Decoration Circle -->
-             <div class="absolute -right-6 -top-6 w-24 h-24 bg-yellow-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
-             
-             <div class="relative z-10">
-                 <h3 class="font-handwriting text-3xl text-yellow-500 mb-4 border-b-2 border-yellow-100 pb-2 inline-block">Chicken Nuggets</h3>
-                 <div class="relative">
-                     <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-yellow-100 text-5xl -z-10"></i>
-                     <p class="text-gray-700 leading-relaxed font-body text-lg whitespace-pre-line pl-2">A simple tray of golden, crispy bites,
-                     Is all it takes to make your spirit glow.
-                     Through busy days or quiet, starry nights,
-                     This favorite snack is how our comforts grow.
-                     I love the way you savor every piece,
-                     Finding a joy that’s pure and sweet and free.
-                     Within this love, all other worries cease,
-                     My favorite flavor is just you and me.</p>
-                 </div>
-                 <div class="mt-6 text-right">
-                    <i class="fa-solid fa-drumstick-bite text-yellow-300 text-sm"></i>
-                 </div>
-             </div>
+        <!-- Open When... Section (HIDDEN) -->
+        <!-- 
+        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in mb-8">
+            <div class="text-center mb-8">
+                <div class="inline-block p-3 rounded-full bg-rose-100 mb-3">
+                    <i class="fa-solid fa-envelope-open-text text-2xl text-rose-500"></i>
+                </div>
+                <h3 class="font-handwriting text-3xl text-rose-500">Open When...</h3>
+                <p class="text-rose-400 text-sm mt-2">A little piece of me for every mood.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="open-when-grid">
+                
+            </div>
         </div>
+        -->
 
-        <!-- Poem 3: Tahanan -->
-        <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in group relative overflow-hidden" style="animation-delay: 300ms;">
-             <!-- Decoration Circle -->
-             <div class="absolute -right-6 -top-6 w-24 h-24 bg-sky-50 rounded-full opacity-50 group-hover:scale-125 transition-transform duration-500"></div>
-             
-             <div class="relative z-10">
-                 <h3 class="font-handwriting text-3xl text-sky-500 mb-4 border-b-2 border-sky-100 pb-2 inline-block">Tahanan</h3>
-                 <div class="relative">
-                     <i class="fa-solid fa-quote-left absolute -left-4 -top-4 text-sky-100 text-5xl -z-10"></i>
-                     <p class="text-gray-700 leading-relaxed font-body text-lg whitespace-pre-line pl-2">Alam mo kung paano gawing tahanan ang bawat sandali,
-                     Sa piling mo, ang mga alalahanin ay madaling napapawi.
-                     Walang kailangang patunayan o higit pang gawin,
-                     Sapat na ang katahimikang tanging tayo ang may angkin.
-                     Sa mundong magulo, sa iyo ako ay laging kampante.</p>
-                 </div>
-                 <div class="mt-6 text-right">
-                    <i class="fa-solid fa-house-chimney text-sky-300 text-sm"></i>
-                 </div>
-             </div>
-        </div>
-
-        <!-- 25 Reasons Section -->
+        <!-- 25 Reasons Section (HIDDEN) -->
+        <!-- 
         <div class="glass-card rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 fade-in">
             <div class="text-center mb-8">
                 <div class="inline-block p-3 rounded-full bg-rose-100 mb-3">
@@ -180,9 +240,10 @@
             </div>
             
             <div id="reasons-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                <!-- Reasons will be injected here by JS -->
+                
             </div>
         </div>
+        -->
 
         <!-- Spotify Playlist -->
         <div class="glass-card rounded-3xl p-6 shadow-sm hover:shadow-md transition-all duration-300 fade-in" style="animation-delay: 400ms;">

@@ -268,3 +268,153 @@ function showBirthdaySurprise() {
         container.appendChild(messageDiv);
     }, 500);
 }
+
+// Theme Toggle Logic
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = themeToggleBtn.querySelector('i');
+
+const applyTheme = (isDark) => {
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+        themeIcon.className = 'fa-solid fa-sun';
+        themeToggleBtn.classList.remove('bg-rose-100', 'text-rose-600', 'border-rose-200', 'hover:bg-rose-200');
+        themeToggleBtn.classList.add('bg-slate-700', 'text-yellow-300', 'border-slate-600', 'hover:bg-slate-600');
+    } else {
+        document.body.classList.remove('dark-mode');
+        themeIcon.className = 'fa-solid fa-moon';
+        themeToggleBtn.classList.add('bg-rose-100', 'text-rose-600', 'border-rose-200', 'hover:bg-rose-200');
+        themeToggleBtn.classList.remove('bg-slate-700', 'text-yellow-300', 'border-slate-600', 'hover:bg-slate-600');
+    }
+};
+
+// Check time of day for auto-theme
+const hour = new Date().getHours();
+// Dark mode between 6 PM (18) and 6 AM (6)
+const isNightTime = hour >= 18 || hour < 6;
+applyTheme(isNightTime);
+
+themeToggleBtn.addEventListener('click', () => {
+    const isDark = !document.body.classList.contains('dark-mode');
+    applyTheme(isDark);
+});
+
+// --- Open When Envelopes ---
+const openWhenGrid = document.getElementById('open-when-grid');
+const openWhenMessages = [
+    {
+        title: "You're Stressed",
+        icon: "fa-bolt",
+        color: "amber",
+        message: "Take a deep breath, my love. Remember that you are capable, strong, and resilient. This moment is just a small wave in the vast ocean of your life. I believe in you, always. Put on your headphones, close your eyes, and listen to our song."
+    },
+    {
+        title: "You Miss Me",
+        icon: "fa-paper-plane",
+        color: "sky",
+        message: "I miss you too, more than words can say. Close your eyes and imagine I'm right there beside you, holding your hand. We'll be together soon. Until then, look at the moon—I'm looking at it too."
+    },
+    {
+        title: "You Need a Laugh",
+        icon: "fa-face-laugh-squint",
+        color: "yellow",
+        message: "Remember that time we tried to cook and almost burned the kitchen? Or just look at this silly face: 🤪. You have the most beautiful smile, and I'd do anything to see it right now."
+    },
+    {
+        title: "You Can't Sleep",
+        icon: "fa-moon",
+        color: "indigo",
+        message: "The world is quiet now, and it's time for you to rest. Let go of today's worries. I'm sending you the warmest, coziest virtual hug. Dream of us. Goodnight, my love."
+    }
+];
+
+if (openWhenGrid) {
+    openWhenMessages.forEach((item) => {
+        const envelope = document.createElement('div');
+        envelope.className = `bg-white/60 p-6 rounded-xl border border-${item.color}-200 text-center hover:bg-${item.color}-50 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md group relative overflow-hidden`;
+        
+        envelope.innerHTML = `
+            <div class="absolute top-0 left-0 w-full h-1 bg-${item.color}-400"></div>
+            <i class="fa-solid ${item.icon} text-3xl text-${item.color}-400 mb-3 group-hover:scale-110 transition-transform"></i>
+            <h4 class="font-handwriting text-xl text-gray-700 mb-1">Open When...</h4>
+            <p class="font-body text-${item.color}-500 font-semibold">${item.title}</p>
+            
+            <!-- Hidden Message Modal Structure -->
+            <div class="hidden-message fixed inset-0 bg-black/50 z-50 hidden flex items-center justify-center p-4 backdrop-blur-sm" style="cursor: default;">
+                <div class="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl transform scale-90 opacity-0 transition-all duration-300 m-4 relative">
+                    <button class="close-btn absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                    <div class="text-center">
+                        <div class="inline-block p-3 rounded-full bg-${item.color}-100 mb-4">
+                            <i class="fa-solid ${item.icon} text-2xl text-${item.color}-500"></i>
+                        </div>
+                        <h3 class="font-handwriting text-2xl text-gray-800 mb-4">When ${item.title}...</h3>
+                        <p class="text-gray-600 leading-relaxed font-body">${item.message}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Logic to open/close modal
+        const modal = envelope.querySelector('.hidden-message');
+        const modalContent = modal.querySelector('div');
+        const closeBtn = modal.querySelector('.close-btn');
+
+        // Open modal on envelope click
+        envelope.addEventListener('click', (e) => {
+            if (e.target.closest('.hidden-message')) return;
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-90', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        });
+
+        // Close modal on close button click
+        closeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeModal();
+        });
+
+        // Close modal on clicking outside the content
+        modal.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (e.target === modal) closeModal();
+        });
+
+        const closeModal = () => {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-90', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+        };
+
+        openWhenGrid.appendChild(envelope);
+    });
+}
+
+// --- Scroll Reveal Animation ---
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        } else {
+            // Remove active class to re-trigger animation when scrolling up/down
+            entry.target.classList.remove('active');
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+});
+
+// Target elements to animate
+// We exclude the nav (which is a glass-card) by selecting only within main
+const elementsToAnimate = document.querySelectorAll('main .glass-card, main .text-center.py-8');
+
+elementsToAnimate.forEach(el => {
+    el.classList.add('reveal');
+    revealObserver.observe(el);
+});
